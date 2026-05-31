@@ -83,7 +83,18 @@ function App() {
       {/* 核心内容层 */}
       <div className="content-wrapper">
         <h1 className="hero-title">
-          Hi, I'm <span className="highlight-blue">Ji Jin Yan</span>
+          Hi, I'm 
+          <span className="highlight-blue">
+            <Typewriter
+              words={[' Ji Jin Yan', ' Fengxin', ' 风信子（']}
+              loop={0}
+              cursor
+              cursorStyle='.'
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
+          </span>
         </h1>
         <h2 className="hero-subtitle">
           I am a{' '}
