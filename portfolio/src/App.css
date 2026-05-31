@@ -12,6 +12,22 @@ body, html, #root {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #0f172a; /* 防止网页加载瞬间闪白 */
 }
+/* =========================================
+    点击涟漪扩散效果 (Click Ripple)
+   ========================================= */
+.ripple-center,
+.ripple-fill,
+.ripple-ring {
+  position: fixed; /* 固定在屏幕上，不随滚动移动 */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* 不阻挡鼠标点击 */
+  z-index: 9999; /* 确保在最上层显示 */
+}
+
+.ripple-ring {
+  border-style: solid;
+}
 
 /* =========================================
     布局样式 (Layout)
