@@ -70,6 +70,6 @@ portfolio/
 
 ## 📋 TODO / Planned
 
+- [ ] Cursor trail effect
 - [ ] About Me section
 - [ ] Still Thinking :D 
-
