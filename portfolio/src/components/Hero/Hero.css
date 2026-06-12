@@ -1,0 +1,88 @@
+/* =========================================
+   Hero — 首屏组件样式
+   ========================================= */
+
+/* ── 外层包裹 ── */
+.hero-wrapper {
+  position: relative;
+}
+
+/* ── 粒子背景：fixed 铺满全屏，滚动时始终可见 ── */
+.particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+/* ── 主内容流：flex 列布局，标题在上、About 在下 ── */
+.hero-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding-top: 12vh;
+  padding-bottom: 80px;
+}
+
+/* ── 标题区域 ── */
+.hero-content {
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* ── 排版 ── */
+.hero-title {
+  font-size: 4rem;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+}
+
+.hero-subtitle {
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 0 0 80px 0;  /* 与下方 About 的间距 */
+}
+
+.highlight-blue {
+  color: #38bdf8;
+}
+
+.highlight-pink {
+  color: #f472b6;
+  font-weight: bold;
+}
+
+/* ── 点击涟漪效果 ── */
+.ripple-center,
+.ripple-fill,
+.ripple-ring {
+  position: fixed;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.ripple-ring {
+  border-style: solid;
+}
+
+/* ── 响应式 ── */
+@media (max-width: 768px) {
+  .hero-container {
+    padding-top: 8vh;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
