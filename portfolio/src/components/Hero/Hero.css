@@ -97,14 +97,29 @@
 /* ── 响应式 ── */
 @media (max-width: 768px) {
   .hero-container {
-    padding-top: 8vh;
+    padding-top: 6vh;
+    padding-bottom: 40px;
+    min-height: auto;
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+    margin: 0 0 12px 0;
   }
 
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin: 0 0 40px 0;
+  }
+
+  .hero-avatar {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-content {
+    padding: 0 16px;
   }
 }

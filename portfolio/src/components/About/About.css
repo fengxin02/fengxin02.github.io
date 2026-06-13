@@ -247,14 +247,99 @@
 }
 /* ── 响应式适配手机端 ── */
 @media (max-width: 768px) {
-  .bento-grid {
-    grid-template-columns: 1fr; /* 手机上全变成单列堆叠 */
+  .about-section {
+    padding: 0 12px 40px;
   }
+
+  .glass-container {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
   .main-intro,
   .skills-box,
   .status-box,
   .wide-box {
     grid-column: span 1;
     grid-row: auto;
+  }
+
+  .bento-item {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .bento-title {
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+  }
+
+  .bento-title-small {
+    font-size: 1rem;
+    margin: 0 0 10px 0;
+  }
+
+  .bento-title-ultrasmall {
+    font-size: 0.45rem;
+    margin: 0 0 20px 0;
+  }
+
+  .bento-text {
+    font-size: 0.9rem;
+  }
+
+  .tech-tags span {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+
+  .about-image {
+    max-width: 100px;
+    margin-top: 10px;
+  }
+
+  /* 翻面面板手机适配 */
+  .flip-wrapper {
+    perspective: 800px;
+  }
+
+  .flip-back-panel {
+    padding: 16px;
+    border-radius: 16px;
+    overflow-y: auto;
+  }
+
+  .flip-back-panel img {
+    max-height: 80px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  .easter-egg-content p {
+    font-size: 0.85rem;
+  }
+
+  .easter-egg-content li {
+    font-size: 0.8rem;
+  }
+
+  .anime-lists {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .inline-icon {
+    height: 1.8em;
+  }
+
+  .egg-footer {
+    font-size: 0.7rem !important;
+    margin-top: 12px !important;
   }
 }
