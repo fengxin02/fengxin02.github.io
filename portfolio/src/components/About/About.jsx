@@ -47,7 +47,7 @@ const About = () => {
           <h2 className="bento-title">About Me:</h2>
           <p className="bento-text">
             Hi! I'm Yan or you can call me Ji or Fengxin. You may be courious about me, because you are here. 
-            I really like a flowers, especially the hyacinth, which is really the same as my name on internet 风信子.
+            I really like flowers, especially the hyacinth, which is really the same as my name on internet 风信子.
              I am currently a Computer Science student, as most of the Computer Science students i chose this major 
              because I love playing video games. Yeah you can find more information by browseing my portfolio. I tried to put some easter 
              eggs waiting you to find them. 
