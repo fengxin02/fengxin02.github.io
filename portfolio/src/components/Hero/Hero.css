@@ -80,7 +80,7 @@
 
 /* ── 右上角头像 ── */
 .hero-avatar {
-  position: fixed;
+  position: absolute;
   top: 24px;
   right: 24px;
   width: 48px;
