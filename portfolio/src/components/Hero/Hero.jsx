@@ -42,6 +42,13 @@ export default function Hero() {
       {/* 粒子背景 — fixed 铺满全屏，滚动时始终可见 */}
       <div ref={particlesRef} className="particles-bg" />
 
+      {/* 右上角头像 */}
+      <img
+        src="/fengxinicon.jpg"
+        alt="Fengxin"
+        className="hero-avatar"
+      />
+
       {/* 主内容流 */}
       <section className="hero-container">
         <div className="hero-content">

@@ -12,9 +12,15 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 0;
+  pointer-events: none;       /* 让滚动条可点击，不拦截鼠标 */
+}
+
+/* canvas 需要恢复交互才能 hover 排斥粒子 */
+.particles-bg canvas {
+  pointer-events: auto;
 }
 
 /* ── 主内容流：flex 列布局，标题在上、About 在下 ── */
@@ -70,6 +76,26 @@
 
 .ripple-ring {
   border-style: solid;
+}
+
+/* ── 右上角头像 ── */
+.hero-avatar {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  object-fit: cover;
+  z-index: 100;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
 }
 
 /* ── 响应式 ── */
