@@ -15,9 +15,9 @@ export default function useRipple() {
   const createRipple = useCallback((x, y) => {
     // 三层涟漪的颜色配置
     const colors = [
-      { bg: 'rgba(244, 114, 182, 0.25)', border: '#f472b6' }, // 粉色
-      { bg: 'rgba(56, 189, 248, 0.20)', border: '#38bdf8' },  // 蓝色
-      { bg: 'rgba(158, 34, 111, 0.22)', border: '#9e226f' },  // 紫色
+      { bg: 'rgba(244, 114, 182, 0.25)', border: '#f472b6' },  // 粉色
+      { bg: 'rgba(56, 189, 248, 0.20)', border: '#38bdf8' },   // 蓝色
+      { bg: 'rgba(158, 34, 111, 0.10)', border: 'rgba(158,34,111,0.35)' }, // 紫色 — 淡一点
     ];
 
     // ── 中心闪光 ──
@@ -29,6 +29,7 @@ export default function useRipple() {
     flash.style.height = '12px';
     flash.style.backgroundColor = '#ffffff';
     flash.style.boxShadow = '0 0 20px #fff, 0 0 40px #f472b6';
+    flash.style.transform = 'translate(-50%, -50%)';
     document.body.appendChild(flash);
 
     animate(flash, {
@@ -49,6 +50,7 @@ export default function useRipple() {
       fill.style.width = '30px';
       fill.style.height = '30px';
       fill.style.backgroundColor = c.bg;
+      fill.style.transform = 'translate(-50%, -50%)';
       document.body.appendChild(fill);
 
       animate(fill, {
@@ -68,7 +70,8 @@ export default function useRipple() {
       ring.style.width = '30px';
       ring.style.height = '30px';
       ring.style.borderColor = c.border;
-      ring.style.boxShadow = `0 0 10px ${c.border}, 0 0 20px ${c.border}`;
+      ring.style.boxShadow = `0 0 8px ${c.border}, 0 0 16px ${c.border}`;
+      ring.style.transform = 'translate(-50%, -50%)';
       document.body.appendChild(ring);
 
       animate(ring, {

@@ -9,8 +9,8 @@ const particleOptions = {
   particles: {
     number: { value: 70 },
     paint: {
-      color: { value: '#9e226f' },
-      fill: { enable: true, opacity: 0.5 },
+      color: { value: '#e8a0c8' },
+      fill: { enable: true, opacity: 0.35 },
     },
     shape: {
       type: 'star',

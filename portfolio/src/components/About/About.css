@@ -12,13 +12,13 @@
 .glass-container {
   width: 100%;
   max-width: 1000px;
-  background: rgba(30, 41, 59, 0.4); /* 深色半透明底色 */
-  backdrop-filter: blur(16px); /* 毛玻璃高斯模糊 */
+  background: rgba(255, 255, 255, 0.35); /* 乳白霜面 — 降低亮度 */
+  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08); /* 极细的高光边框 */
+  border: 1px solid rgba(244, 114, 182, 0.15); /* 粉紫边框稍明显 */
   border-radius: 24px;
   padding: 30px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 32px rgba(192, 97, 203, 0.08);
 }
 
 /* 便当盒 CSS Grid 布局 */
@@ -30,8 +30,8 @@
 
 /* 便当子卡片通用样式 */
 .bento-item {
-  background: rgba(15, 23, 42, 0.6); /* 卡片内部颜色更深一点 */
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(244, 114, 182, 0.18);
   border-radius: 16px;
   padding: 24px;
   transition:
@@ -40,8 +40,8 @@
 }
 
 .bento-item:hover {
-  transform: translateY(-5px); /* 鼠标悬浮时微微上浮 */
-  background: rgba(30, 41, 59, 0.8);
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* 分配格子空间 */
@@ -66,14 +66,14 @@
 .bento-title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #fff;
+  color: #3d2b4d;
   margin: 0 0 15px 0;
 }
 
 .bento-title-small {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #38bdf8;
+  color: #c061cb;
   margin: 0 0 15px 0;
 }
 
@@ -81,17 +81,17 @@
   display: block;
   font-size: 0.5rem;
   font-weight: 400;
-  color: #ececec;
+  color: #b8a0c8;
   margin: 0 0 35px 0;
 }
 
 .small-text {
   font-size: 0.5rem;
-  color: #cbd5e1;
+  color: #b8a0c8;
   margin: 0 0 10px 0;
 }
 .bento-text {
-  color: #cbd5e1;
+  color: #7b6b8b;
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -103,15 +103,15 @@
 }
 
 .tech-tags span {
-  background: rgba(56, 189, 248, 0.1);
-  color: #38bdf8;
+  background: rgba(192, 97, 203, 0.08);
+  color: #c061cb;
   padding: 6px 12px;
   border-radius: 8px;
   font-size: 0.9rem;
 }
 
 .status-text {
-  color: #cbd5e1;
+  color: #7b6b8b;
   margin: 8px 0;
 }
 
