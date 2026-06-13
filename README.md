@@ -72,5 +72,6 @@ portfolio/
 
 - [ ] Cursor trail effect
 - [x] About Me section
-- [ ] New Flowe blooming clicking effect
+- [ ] New Flower blooming clicking effect
+- [ ] Profile icon and show contact information
 - [ ] Still Thinking :D 
