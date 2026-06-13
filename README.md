@@ -71,5 +71,6 @@ portfolio/
 ## 📋 TODO / Planned
 
 - [ ] Cursor trail effect
-- [ ] About Me section
+- [x] About Me section
+- [ ] New Flowe blooming clicking effect
 - [ ] Still Thinking :D 

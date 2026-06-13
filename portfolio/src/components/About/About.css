@@ -124,8 +124,117 @@
   margin-top: 15px; /* 和上文的文字拉开一点距离 */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 加上淡淡的阴影，更有立体感 */
 }
+.small-image {
+  display: block;
+  max-width: 100px; /* 限制最大宽度，你可以根据喜好调整 */
+  border-radius: 12px; /* 让图片边缘带有一点圆角，更贴合苹果风 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 加上淡淡的阴影，更有立体感 */
+}
 
-/* 响应式适配手机端 */
+/* 文字和头像并排 */
+.anime-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inline-icon {
+  height: 2.5em;
+  width: auto;
+  border-radius: 4px;
+  vertical-align: middle;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ── 3D 整板翻面 ── */
+.flip-wrapper {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-wrapper.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front-panel,
+.flip-back-panel {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-front-panel {
+  position: relative;
+}
+
+.flip-back-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(244, 114, 182, 0.15);
+  border-radius: 24px;
+  padding: 30px;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(192, 97, 203, 0.08);
+}
+
+.flip-trigger {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.flip-trigger:hover {
+  color: #e879a8;
+}
+
+/* 背面彩蛋内容 */
+.easter-egg-content {
+  color: #7b6b8b;
+  margin-top: 16px;
+}
+
+.easter-egg-content p {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+}
+
+.easter-egg-content ul {
+  list-style: '🌸 ';
+  padding-left: 1.2em;
+  margin: 0 0 16px 0;
+}
+
+.easter-egg-content li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6b5b7b;
+}
+
+.egg-footer {
+  font-size: 0.85rem !important;
+  color: #b8a0c8 !important;
+  font-style: italic;
+  margin-top: 20px !important;
+}
+
+/* ── 响应式适配手机端 ── */
 @media (max-width: 768px) {
   .bento-grid {
     grid-template-columns: 1fr; /* 手机上全变成单列堆叠 */
