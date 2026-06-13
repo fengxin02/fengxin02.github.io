@@ -35,12 +35,13 @@
   border-radius: 16px;
   padding: 24px;
   transition:
-    transform 0.3s ease,
+    margin 0.3s ease,
     background 0.3s ease;
 }
 
 .bento-item:hover {
-  transform: translateY(-5px);
+  margin-top: -5px;
+  margin-bottom: 5px;
   background: rgba(255, 255, 255, 0.5);
 }
 
