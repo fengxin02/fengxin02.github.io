@@ -13,7 +13,7 @@
   width: 100%;
   max-width: 1000px;
   background: rgba(30, 41, 59, 0.4); /* 深色半透明底色 */
-  backdrop-filter: blur(16px);       /* 毛玻璃高斯模糊 */
+  backdrop-filter: blur(16px); /* 毛玻璃高斯模糊 */
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08); /* 极细的高光边框 */
   border-radius: 24px;
@@ -34,7 +34,9 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   padding: 24px;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 }
 
 .bento-item:hover {
@@ -45,7 +47,7 @@
 /* 分配格子空间 */
 .main-intro {
   grid-column: span 2; /* 主面板占据 2 列宽度 */
-  grid-row: span 2;    /* 占据 2 行高度 */
+  grid-row: span 2; /* 占据 2 行高度 */
 }
 
 .skills-box {
@@ -76,12 +78,18 @@
 }
 
 .bento-title-ultrasmall {
+  display: block;
   font-size: 0.5rem;
   font-weight: 400;
   color: #ececec;
-  margin: 0  0 15px 0;
+  margin: 0 0 35px 0;
 }
 
+.small-text {
+  font-size: 0.5rem;
+  color: #cbd5e1;
+  margin: 0 0 10px 0;
+}
 .bento-text {
   color: #cbd5e1;
   font-size: 1.1rem;
@@ -107,12 +115,25 @@
   margin: 8px 0;
 }
 
+/* 限制头像/图片的大小和圆角 */
+.about-image {
+  display: block;
+  max-width: 150px; /* 限制最大宽度，你可以根据喜好调整 */
+  height: auto;
+  border-radius: 12px; /* 让图片边缘带有一点圆角，更贴合苹果风 */
+  margin-top: 15px; /* 和上文的文字拉开一点距离 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 加上淡淡的阴影，更有立体感 */
+}
+
 /* 响应式适配手机端 */
 @media (max-width: 768px) {
   .bento-grid {
     grid-template-columns: 1fr; /* 手机上全变成单列堆叠 */
   }
-  .main-intro, .skills-box, .status-box, .wide-box {
+  .main-intro,
+  .skills-box,
+  .status-box,
+  .wide-box {
     grid-column: span 1;
     grid-row: auto;
   }

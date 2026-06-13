@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import './About.css';
+import sato from '../../assets/sato.png';
 
 // 苹果风弹簧参数 — 丝滑阻尼感
 const spring = {
@@ -48,7 +49,9 @@ const About = () => {
             Hi! I'm Yan or you can call me Ji or Fengxin. You may be courious about me, because you are here. 
             I really like a flowers, especially the hyacinth, which is really the same as my name on internet 风信子.
              I am currently a Computer Science student, as most of the Computer Science students i chose this major 
-             because I love playing video games.
+             because I love playing video games. Yeah you can find more information by browseing my portfolio. I tried to put some easter 
+             eggs waiting you to find them. 
+             <img src={sato} alt="Sato" className = "about-image"/>
           </p>
         </motion.div>
 
@@ -70,8 +73,14 @@ const About = () => {
           <h3 className="bento-title-small">Favourite Games</h3>
           <div className="tech-tags">
             <span>League of Legends</span>
+            <span>osu!</span>
+            <span>Muse Dash</span>
             <span>CSGO</span>
             <span>Clash Royale</span>
+            <span>Stellar Blade</span>
+            <span>Elden Ring</span>
+            <span>Granblue Fantasy: Relink</span>
+            <span>...</span>
           </div>
         </motion.div>
 
@@ -79,7 +88,8 @@ const About = () => {
         <motion.div className="bento-item wide-box" variants={itemVariants}>
           <h3 className="bento-title-small">More things</h3>
           <p className="bento-text">
-            I will write more. :D 
+            Yeah more..... Let's find more about me  
+            <span className= "small-text"> somewhere...</span>
           </p>
         </motion.div>
       </motion.div>
