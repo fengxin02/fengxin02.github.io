@@ -61,7 +61,7 @@ const About = () => {
                 About Me
               </h2>
               <p className="bento-text">
-                Hi! I&apos;m Yan or you can call me Ji or Fengxin. You may be
+                Hi! I&apos;m Yan or you can call me Ji or Fengxin. You might be
                 curious about me, because you are here. I really like flowers,
                 especially the hyacinth, which is really the same as my name on
                 internet 风信子. I am currently a Computer Science student, as
@@ -128,7 +128,7 @@ const About = () => {
                 Let&apos;s talk about anime{' '}
                 <img src={raphiel} alt="Raphiel" className="inline-icon" />
               </p>
-              <p>I love watching anime, but i guess it&apos;s not hard to figure out my the style of the website.
+              <p>I love watching anime, but i guess it&apos;s not hard to figure out by the style of the website.
                  The scene above is one of my favorite scenes from the &ldquo;MyGO!!!!!&rdquo;. (It&apos;s kinda fit there imo)</p>
                  <p>Lemme tell you a few my favorite anime:</p>
             
@@ -145,12 +145,12 @@ const About = () => {
                 <li>Maria-sama ga Miteru</li>
               </ul>
               <ul>
-                <li>This Monster Wants to Eat Me</li>
-                <li>Happy Sugar Life</li>
+                <li>YuruYuri</li>
+                <li>Cosmic Princess Kaguya!</li>
                 <li>Manaria Friends</li>
               </ul>
             </div>
-              <p>It will be so long, you know what i will open a new page for showing my favourite anime.
+              <p>It would be so long if I start to share all the good anime what I like. You know what, i will open a new page for showing my favourite anime.
                 (Still in progress, not even made a folder but WE WILL HAVE  :DD)</p>
               <p className="egg-footer">
                 Click the title again to flip back.
