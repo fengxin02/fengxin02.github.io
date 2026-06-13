@@ -108,7 +108,7 @@ const About = () => {
               <h3 className="bento-title-small">More things</h3>
               <p className="bento-text">
                 Yeah more..... Let&apos;s find more about me
-                <span className="small-text"> somewhere...</span>
+                <span className="small-text"> somewhere...... maybe just click around? </span>
               </p>
             </motion.div>
           </motion.div>

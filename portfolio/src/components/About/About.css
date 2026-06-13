@@ -194,7 +194,7 @@
 }
 
 .flip-trigger {
-  cursor: pointer;
+  /* cursor: pointer;  more fun :D*/
   user-select: none;
   transition: color 0.3s ease;
 }
