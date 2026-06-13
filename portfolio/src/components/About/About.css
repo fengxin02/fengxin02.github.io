@@ -111,11 +111,6 @@
   font-size: 0.9rem;
 }
 
-.status-text {
-  color: #7b6b8b;
-  margin: 8px 0;
-}
-
 /* 限制头像/图片的大小和圆角 */
 .about-image {
   display: block;
@@ -125,13 +120,6 @@
   margin-top: 15px; /* 和上文的文字拉开一点距离 */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 加上淡淡的阴影，更有立体感 */
 }
-.small-image {
-  display: block;
-  max-width: 100px; /* 限制最大宽度，你可以根据喜好调整 */
-  border-radius: 12px; /* 让图片边缘带有一点圆角，更贴合苹果风 */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 加上淡淡的阴影，更有立体感 */
-}
-
 /* 文字和头像并排 */
 .anime-line {
   display: flex;
