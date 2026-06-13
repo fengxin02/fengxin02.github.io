@@ -7,24 +7,39 @@ import './Hero.css';
 // 粒子背景配置
 const particleOptions = {
   particles: {
-    number: { value: 70 },
+    number: { value: 45 },
     paint: {
-      color: { value: '#e8a0c8' },
-      fill: { enable: true, opacity: 0.35 },
+      color: { value: '#f8a0b8' },
+      fill: { enable: true, opacity: 0.6 },
     },
     shape: {
-      type: 'star',
-      options: { star: { sides: 5 } },
+      type: 'image',
+      options: {
+        image: {
+          src: '/sakura.svg',
+          width: 40,
+          height: 40,
+        },
+      },
     },
-    move: { enable: true, speed: 1 },
-    size: { value: { min: 2, max: 4 } },
+    rotate: {
+      value: { min: 0, max: 360 },
+      animation: { enable: true, speed: 2, sync: false },
+    },
+    move: {
+      enable: true,
+      speed: 0.8,
+      direction: 'bottom-right',
+      straight: false,
+    },
+    size: { value: { min: 12, max: 22 } },
   },
   interactivity: {
     events: {
       onHover: { enable: true, mode: 'repulse' },
     },
     modes: {
-      repulse: { distance: 50, duration: 0.4 },
+      repulse: { distance: 60, duration: 0.4 },
     },
   },
 };
