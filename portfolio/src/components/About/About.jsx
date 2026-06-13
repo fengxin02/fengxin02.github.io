@@ -131,12 +131,25 @@ const About = () => {
               <p>I love watching anime, but i guess it&apos;s not hard to figure out my the style of the website.
                  The scene above is one of my favorite scenes from the &ldquo;MyGO!!!!!&rdquo;. (It&apos;s kinda fit there imo)</p>
                  <p>Lemme tell you a few my favorite anime:</p>
+            
+            <div className="anime-lists">
 
               <ul>
                 <li>Citrus</li>
                 <li>Grand Blue Dreaming</li>
                 <li>Bloom into You</li>
               </ul>
+              <ul>
+                <li>This Monster Wants to Eat Me</li>
+                <li>Happy Sugar Life</li>
+                <li>Maria-sama ga Miteru</li>
+              </ul>
+              <ul>
+                <li>This Monster Wants to Eat Me</li>
+                <li>Happy Sugar Life</li>
+                <li>Manaria Friends</li>
+              </ul>
+            </div>
               <p>It will be so long, you know what i will open a new page for showing my favourite anime.
                 (Still in progress, not even made a folder but WE WILL HAVE  :DD)</p>
               <p className="egg-footer">

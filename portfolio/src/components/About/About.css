@@ -233,7 +233,18 @@
   font-style: italic;
   margin-top: 20px !important;
 }
+.anime-lists {
+  display: flex;         /* 开启弹性盒布局 */
+  flex-direction: row;   /* 让子元素横向排成一排 */
+  gap: 80px;             /* 左右两组列表之间的空隙距离，你可以根据喜好微调 */
+  margin: 0 0 16px 0;    /* 保持原先 ul 的外边距，防止挤压下面的文字 */
+}
 
+/* 消除右边新列表多余的外边距干扰 */
+.anime-lists ul {
+  margin: 0; 
+  padding-left: 1.2em;   /* 保持你原先设计的樱花 🌸 图标间距 */
+}
 /* ── 响应式适配手机端 ── */
 @media (max-width: 768px) {
   .bento-grid {
