@@ -7,9 +7,9 @@ import bilibiliIcon from '../../assets/bilibili_icon.png';
 
 // 社交媒体和联系方式
 const links = [
-  { label: 'GitHub',    url: 'https://github.com/fengxin02',     icon: githubIcon },
+  { label: 'GitHub: fengxin02',    url: 'https://github.com/fengxin02',     icon: githubIcon },
   { label: 'Email: jijinyan0201@gmail.com',     url: 'mailto:jijinyan0201@gmail.com',             icon: emailIcon },
-  { label: 'Bilibili',  url: 'https://space.bilibili.com/365515435?spm_id_from=333.1007.0.0',   icon: bilibiliIcon },
+  { label: 'Bilibili:風馨',  url: 'https://space.bilibili.com/365515435?spm_id_from=333.1007.0.0',   icon: bilibiliIcon },
   { label: 'Discord: fengxin02',   url: 'https://discord.com/users/fengxin02',            icon: discordIcon },
 ];
 
