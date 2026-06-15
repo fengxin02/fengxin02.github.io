@@ -107,8 +107,9 @@ const About = () => {
             <motion.div className="bento-item wide-box" variants={itemVariants}>
               <h3 className="bento-title-small">More things</h3>
               <p className="bento-text">
-                Yeah more..... Let&apos;s find more about me
-                <span className="small-text"> somewhere...... maybe just click around? </span>
+                Yeah more..... Let&apos;s find more about me, click on the icon at the top right corner of this page or 
+                
+                <span className="small-text">{' '}somewhere else...... maybe just click around? </span>
               </p>
             </motion.div>
           </motion.div>
