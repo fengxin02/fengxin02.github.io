@@ -144,8 +144,15 @@
   inset: 0;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(16px);
+
+  /* 前缀必须在标准属性前面 */
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+
+  /* 强制 GPU 硬件加速 */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
   border: 1px solid rgba(244, 114, 182, 0.15);
   box-shadow: 0 8px 32px rgba(192, 97, 203, 0.08);
   z-index: 0;
