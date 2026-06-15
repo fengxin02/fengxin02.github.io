@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import useParticles from '../../hooks/useParticles';
 import useRipple from '../../hooks/useRipple';
 import About from '../About/About';
+import ContactModal from '../ContactModal/ContactModal';
 import './Hero.css';
 
 // 粒子背景配置
@@ -51,18 +53,25 @@ const subtitleWords = ['Computer Science Student', 'League of Legends Enjoyer', 
 export default function Hero() {
   const particlesRef = useParticles(particleOptions);
   useRipple();
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="hero-wrapper">
       {/* 粒子背景 — fixed 铺满全屏，滚动时始终可见 */}
       <div ref={particlesRef} className="particles-bg" />
 
-      {/* 右上角头像 */}
+      {/* 右上角头像 — 点击打开联系弹窗 */}
       <img
         src="/fengxinicon.jpg"
         alt="Fengxin"
         className="hero-avatar"
+        onClick={() => setModalOpen(true)}
+        title="Contact me"
+        style={{ cursor: 'pointer' }}
       />
+
+      {/* 联系方式弹窗 */}
+      <ContactModal open={modalOpen} onClose={() => setModalOpen(false)} />
 
       {/* 主内容流 */}
       <section className="hero-container">

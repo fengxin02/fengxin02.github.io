@@ -1,0 +1,126 @@
+/* ── 遮罩 ── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(9, 13, 22, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* ── 面板 ── */
+.modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(244, 114, 182, 0.15);
+  border-radius: 20px;
+  padding: 36px 28px 28px;
+  text-align: center;
+  box-shadow: 0 16px 48px rgba(192, 97, 203, 0.12);
+}
+
+/* ── 关闭按钮 ── */
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #b8a0c8;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.modal-close:hover {
+  color: #c061cb;
+  background: rgba(192, 97, 203, 0.08);
+}
+
+/* ── 标题 ── */
+.modal-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #3d2b4d;
+  margin: 0 0 6px;
+}
+
+.modal-subtitle {
+  font-size: 0.9rem;
+  color: #8b7b9b;
+  margin: 0 0 24px;
+}
+
+/* ── 链接列表 ── */
+.modal-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.modal-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(244, 114, 182, 0.12);
+  border-radius: 12px;
+  text-decoration: none;
+  color: #3d2b4d;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.modal-link:hover {
+  background: rgba(255, 255, 255, 0.55);
+  transform: translateX(4px);
+}
+
+.modal-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.modal-link-label {
+  font-weight: 500;
+  line-height: 1.3;
+}
+/* ── 底部 ── */
+.modal-footer {
+  font-size: 0.75rem;
+  color: #9900ff;
+  margin: 0;
+}
+
+/* ── 手机端 ── */
+@media (max-width: 768px) {
+  .modal-panel {
+    padding: 28px 20px 20px;
+  }
+
+  .modal-title {
+    font-size: 1.3rem;
+  }
+}
