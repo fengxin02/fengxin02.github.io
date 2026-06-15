@@ -12,8 +12,15 @@
 .glass-container {
   width: 100%;
   max-width: 1000px;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 1px solid rgba(244, 114, 182, 0.15);
   border-radius: 24px;
   padding: 30px;
+  box-shadow: 0 8px 32px rgba(192, 97, 203, 0.08);
 }
 
 /* 便当盒 CSS Grid 布局 */
@@ -138,27 +145,6 @@
   position: relative;
 }
 
-/* 毛玻璃模糊层 — 必须在 3D 上下文外部才能生效 */
-.flip-frost {
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.35);
-
-  /* 前缀必须在标准属性前面 */
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-
-  /* 强制 GPU 硬件加速 */
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-
-  border: 1px solid rgba(244, 114, 182, 0.15);
-  box-shadow: 0 8px 32px rgba(192, 97, 203, 0.08);
-  z-index: 0;
-  pointer-events: none;
-}
-
 .flip-inner {
   position: relative;
   width: 100%;
@@ -186,12 +172,18 @@
   left: 0;
   width: 100%;
   min-height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 1px solid rgba(244, 114, 182, 0.15);
   border-radius: 24px;
   padding: 30px;
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  box-shadow: 0 8px 32px rgba(192, 97, 203, 0.08);
 }
 
 .flip-trigger {
@@ -257,10 +249,6 @@
     border-radius: 16px;
   }
 
-  .flip-frost {
-    border-radius: 16px;
-  }
-
   .bento-grid {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -316,7 +304,6 @@
   .flip-back-panel {
     padding: 16px;
     border-radius: 16px;
-    overflow-y: auto;
   }
 
   .flip-back-panel img {
