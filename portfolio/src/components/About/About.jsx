@@ -42,6 +42,8 @@ const About = () => {
     <section className="about-section">
       {/* 3D 翻面容器 — 包裹整块玻璃面板 */}
       <div className={`flip-wrapper ${flipped ? 'flipped' : ''}`}>
+        {/* 毛玻璃层 — 在 3D 上下文外部确保 backdrop-filter 生效 */}
+        <div className="flip-frost" />
         <div className="flip-inner">
           {/* ── 正面：完整的便当面板 ── */}
           <motion.div

@@ -12,13 +12,8 @@
 .glass-container {
   width: 100%;
   max-width: 1000px;
-  background: rgba(255, 255, 255, 0.35); /* 乳白霜面 — 降低亮度 */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(244, 114, 182, 0.15); /* 粉紫边框稍明显 */
   border-radius: 24px;
   padding: 30px;
-  box-shadow: 0 8px 32px rgba(192, 97, 203, 0.08);
 }
 
 /* 便当盒 CSS Grid 布局 */
@@ -140,6 +135,21 @@
   perspective: 1200px;
   width: 100%;
   max-width: 1000px;
+  position: relative;
+}
+
+/* 毛玻璃模糊层 — 必须在 3D 上下文外部才能生效 */
+.flip-frost {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(244, 114, 182, 0.15);
+  box-shadow: 0 8px 32px rgba(192, 97, 203, 0.08);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .flip-inner {
@@ -169,17 +179,12 @@
   left: 0;
   width: 100%;
   min-height: 100%;
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(244, 114, 182, 0.15);
   border-radius: 24px;
   padding: 30px;
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 8px 32px rgba(192, 97, 203, 0.08);
 }
 
 .flip-trigger {
@@ -242,6 +247,10 @@
 
   .glass-container {
     padding: 20px;
+    border-radius: 16px;
+  }
+
+  .flip-frost {
     border-radius: 16px;
   }
 
