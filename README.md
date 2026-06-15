@@ -96,4 +96,5 @@ portfolio/
 - [x] About Me section
 - [ ] New Flower blooming clicking effect
 - [x] Profile icon and show contact information
+- [ ] 3D live character add into website
 - [ ] Still Thinking :D 
