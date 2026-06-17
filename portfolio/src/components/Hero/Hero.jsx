@@ -67,7 +67,6 @@ export default function Hero() {
         className="hero-avatar"
         onClick={() => setModalOpen(true)}
         title="Contact me"
-        style={{ cursor: 'pointer' }}
       />
 
       {/* 联系方式弹窗 */}

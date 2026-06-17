@@ -21,3 +21,21 @@ html,
     Helvetica, Arial, sans-serif;
   background-color: #f5f0fa;
 }
+
+/* 自定义鼠标指针 */
+html, body {
+  cursor: url('/HatsuneMikuCursors.png'), auto;
+}
+
+/* 点击元素指针 */
+a,
+button,
+[role='button'],
+.hero-avatar {
+  cursor: url('/HatsuneMiku--pointer.png'), pointer;
+}
+
+/* 粒子 canvas 继承光标，不还原默认 */
+.particles-bg canvas {
+  cursor: inherit;
+}
