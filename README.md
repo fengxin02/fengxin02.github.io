@@ -92,7 +92,7 @@ portfolio/
 ## 📋 TODO / Planned
 
 - [ ] Cursor trail effect
-- [ ] Mouse cursor customize
+- [x] Mouse cursor customize
 - [x] About Me section
 - [ ] New Flower blooming clicking effect
 - [x] Profile icon and show contact information
