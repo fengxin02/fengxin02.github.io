@@ -149,9 +149,9 @@ export default function useCanvasCursor() {
 
     phase = new Phase({
       phase: Math.random() * 2 * Math.PI,
-      amplitude: 85,
+      amplitude: 45,   // 色相摆动范围：紫(270) -> 粉(315) -> 红(360)
       frequency: 0.0015,
-      offset: 285,
+      offset: 315,     // 中心点：粉色
     });
 
     document.addEventListener('mousemove', onMousemove);
