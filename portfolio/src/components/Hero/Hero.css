@@ -2,6 +2,14 @@
    Hero — 首屏组件样式
    ========================================= */
 
+/* ── 鼠标拖尾 canvas ── */
+.trail-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+}
+
 /* ── 外层包裹 ── */
 .hero-wrapper {
   position: relative;

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import useParticles from '../../hooks/useParticles';
 import useRipple from '../../hooks/useRipple';
+import useCanvasCursor from '../../hooks/useCursorTrail';
 import About from '../About/About';
 import ContactModal from '../ContactModal/ContactModal';
 import './Hero.css';
@@ -53,12 +54,16 @@ const subtitleWords = ['Computer Science Student', 'League of Legends Enjoyer', 
 export default function Hero() {
   const particlesRef = useParticles(particleOptions);
   useRipple();
+  useCanvasCursor();
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="hero-wrapper">
       {/* 粒子背景 — fixed 铺满全屏，滚动时始终可见 */}
       <div ref={particlesRef} className="particles-bg" />
+
+      {/* 鼠标拖尾 canvas */}
+      <canvas id="trail-canvas" className="trail-canvas" />
 
       {/* 右上角头像 — 点击打开联系弹窗 */}
       <img

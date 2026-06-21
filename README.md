@@ -13,6 +13,7 @@ A personal portfolio website built with React and Vite, featuring animated parti
 - **Scroll Animations** — Bento grid cards animate in with spring physics on scroll via [Framer Motion](https://www.framer.com/motion/)
 - **Responsive Design** — Adapts layout and font sizes for mobile and desktop screens
 - **Sakura Glass Theme** — Light lavender background with frosted white glass panels and pink-purple accent colors
+- **Cursos trail effect** - Canvas Cursor Effect, with red, purple, pink colors changing via [Cursify](https://cursify.ui-layouts.com/components/canvas-cursor)
 
 ## Tech Stack
 
