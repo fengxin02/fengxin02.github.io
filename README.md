@@ -1,19 +1,23 @@
 # Personal Portfolio Website
 
-A personal portfolio website built with React and Vite, featuring animated particle backgrounds and interactive typing effects.
+A personal portfolio website built with React and Vite, featuring a blooming hyacinth opening and quiet falling petals.
 
 >  **Work in Progress** — This project is under active development.
 
 ## Features (So Far)
 
-- **Animated Particle Background** — Interactive sakura petal particles with hover repulsion, powered by [tsParticles](https://particles.js.org/)
-- **Click Ripple Effect** — Click anywhere to spawn three expanding glass rings with staggered delays, driven by [anime.js v4](https://animejs.com/)
+- **Hyacinth Opening** — A hyacinth grows and blooms at the top of the first screen, then its petals fall across the page. Plays once per tab, can be skipped with a click or key press, and is off for visitors who prefer reduced motion. Click the flower to replay it. Built with [Framer Motion](https://www.framer.com/motion/)
+- **Sticky Hyacinth Rail** — On desktop, scrolling moves the flower and name into a fixed left column with section navigation
+- **Projects, Background, and "Right now"** — Content lives in `src/data/content.js`
+- **Anime and Game Walls** — Most cover images load from AniList and Steam, and fall back to a title tile if they fail
+- **Animated Particle Background** — A few soft falling petals, powered by [tsParticles](https://particles.js.org/)
+- **Falling Petal Cursor** — Moving the mouse occasionally drops a petal, drawn on a canvas
+- **Click Bloom Effect** — Click anywhere to open a small flower, driven by [anime.js v4](https://animejs.com/)
 - **3D Flip Easter Egg** — Click the *** to flip the entire panel and reveal hidden content, using CSS 3D transforms
-- **Typewriter Effect** — Rotating titles with a live typing animation via [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter)
+- **Rotating Subtitle** — Titles cross-fade in place so the line never shifts sideways
 - **Scroll Animations** — Bento grid cards animate in with spring physics on scroll via [Framer Motion](https://www.framer.com/motion/)
 - **Responsive Design** — Adapts layout and font sizes for mobile and desktop screens
-- **Sakura Glass Theme** — Light lavender background with frosted white glass panels and pink-purple accent colors
-- **Cursos trail effect** - Canvas Cursor Effect, with red, purple, pink colors changing via [Cursify](https://cursify.ui-layouts.com/components/canvas-cursor)
+- **Hyacinth Theme** — Light lavender background with soft white cards and purple accent colors
 
 ## Tech Stack
 
@@ -22,9 +26,9 @@ A personal portfolio website built with React and Vite, featuring animated parti
 | Framework         | React 19                            |
 | Build Tool        | Vite 8                              |
 | Particles         | tsParticles v4 (`@tsparticles/slim`)|
-| Click Ripple      | anime.js v4                         |
+| Click Bloom       | anime.js v4                         |
 | Page Animations   | Framer Motion                       |
-| Typing Animation  | react-simple-typewriter             |
+| Heading Font      | Noto Serif SC (`@fontsource`)       |
 
 ##  Getting Started
 
@@ -69,19 +73,40 @@ portfolio/
 ├── eslint.config.js
 ├── public/
 │   ├── fengxinicon.jpg
-│   └── sakura.svg
+│   └── petal.svg
 └── src/
     ├── main.jsx                  # React entry point
     ├── index.css                 # Global reset
     ├── App.jsx                   # Root component
     ├── App.css                   # App-level styles (reserved)
+    ├── data/
+    │   └── content.js            # Projects, background, anime, and games
     ├── hooks/
     │   ├── useParticles.js       # tsParticles init logic
-    │   └── useRipple.js          # Click ripple effect logic
+    │   ├── useIntro.js           # Opening playback state
+    │   ├── useHeroRail.js        # Moves the flower to the left column on scroll
+    │   ├── useActiveSection.js   # Highlights the current section in the nav
+    │   ├── usePetalTrail.js      # Falling petals on mouse move
+    │   └── useClickBloom.js      # Click bloom effect logic
     └── components/
         ├── Hero/
         │   ├── Hero.jsx          # Landing section
+        │   ├── HeroRail.jsx      # Tagline and section nav under the flower
+        │   ├── Hyacinth.jsx      # Hyacinth illustration and bloom animation
+        │   ├── PetalBurst.jsx    # Petals that fall after the bloom
+        │   ├── RotatingWord.jsx  # Cross-fading subtitle
         │   └── Hero.css
+        ├── Section/
+        │   └── Section.jsx       # Section title and fade-in
+        ├── Projects/
+        │   ├── Projects.jsx      # Project cards
+        │   └── Projects.css
+        ├── Background/
+        │   ├── Background.jsx    # Education and languages
+        │   └── Background.css
+        ├── MediaWall/
+        │   ├── MediaWall.jsx     # Anime poster and game cover walls
+        │   └── MediaWall.css
         ├── About/
         │   ├── About.jsx         # Bento grid + 3D flip
         │   └── About.css
@@ -95,7 +120,7 @@ portfolio/
 - [x] Cursor trail effect
 - [x] Mouse cursor customize
 - [x] About Me section
-- [ ] New Flower blooming clicking effect
+- [x] New Flower blooming clicking effect
 - [x] Profile icon and show contact information
 - [ ] 3D live character add into website
 - [ ] Still Thinking :D 
