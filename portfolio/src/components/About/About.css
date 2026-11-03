@@ -1,50 +1,29 @@
 .about-section {
   width: 100%;
-  max-width: 1100px;
-  display: flex;
-  justify-content: center;
-  padding: 0 20px 60px;
-  position: relative;
-  z-index: 1;
-}
-
-/* 融合核心：大悬浮板 + 便当网格 */
-.glass-container {
-  width: 100%;
-  max-width: 1000px;
-  background: rgba(255, 255, 255, 0.35);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  border: 1px solid rgba(244, 114, 182, 0.15);
-  border-radius: 24px;
-  padding: 30px;
-  box-shadow: 0 8px 32px rgba(192, 97, 203, 0.08);
 }
 
 /* 便当盒 CSS Grid 布局 */
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 划分 3 列 */
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 划分 3 列 */
   gap: 20px; /* 卡片间距 */
 }
 
 /* 便当子卡片通用样式 */
 .bento-item {
-  background: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(244, 114, 182, 0.18);
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(154, 63, 168, 0.1);
   border-radius: 16px;
   padding: 24px;
+  box-shadow: 0 6px 24px rgba(90, 60, 120, 0.06);
   transition:
-    margin 0.3s ease,
-    background 0.3s ease;
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .bento-item:hover {
-  margin-top: -5px;
-  margin-bottom: 5px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 28px rgba(90, 60, 120, 0.1);
 }
 
 /* 分配格子空间 */
@@ -67,8 +46,9 @@
 
 /* 字体排版 */
 .bento-title {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 600;
   color: #3d2b4d;
   margin: 0 0 15px 0;
 }
@@ -76,25 +56,26 @@
 .bento-title-small {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #c061cb;
+  color: #9a3fa8;
   margin: 0 0 15px 0;
 }
 
 .bento-title-ultrasmall {
   display: block;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.5;
   font-weight: 400;
-  color: #b8a0c8;
-  margin: 0 0 35px 0;
+  color: #8b7b9b;
+  margin: 0 0 16px 0;
 }
 
 .small-text {
-  font-size: 0.5rem;
-  color: #b8a0c8;
+  font-size: 0.8rem;
+  color: #8b7b9b;
   margin: 0 0 10px 0;
 }
 .bento-text {
-  color: #7b6b8b;
+  color: #6b5b7b;
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -105,9 +86,45 @@
   gap: 10px;
 }
 
+.also-label {
+  font-size: 0.8rem;
+  color: #8b7b9b;
+  margin: 16px 0 8px;
+}
+
+.tech-tags.quiet span {
+  font-size: 0.8rem;
+  padding: 4px 9px;
+  background: rgba(90, 60, 120, 0.05);
+  color: #6b5b7b;
+}
+
+/* 正在做什么 */
+.now-list {
+  margin: 0;
+}
+
+.now-list div {
+  margin-bottom: 12px;
+}
+
+.now-list div:last-child {
+  margin-bottom: 0;
+}
+
+.now-list dt {
+  font-size: 0.8rem;
+  color: #8b7b9b;
+}
+
+.now-list dd {
+  margin: 2px 0 0;
+  color: #3d2b4d;
+}
+
 .tech-tags span {
-  background: rgba(192, 97, 203, 0.08);
-  color: #c061cb;
+  background: rgba(154, 63, 168, 0.08);
+  color: #8a3596;
   padding: 6px 12px;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -115,12 +132,12 @@
 
 /* 限制头像/图片的大小和圆角 */
 .about-image {
-  display: block;
-  max-width: 150px; /* 限制最大宽度，你可以根据喜好调整 */
+  float: right; /* 文字绕排，卡片里不留空白 */
+  max-width: 170px; /* 限制最大宽度，你可以根据喜好调整 */
   height: auto;
   border-radius: 12px; /* 让图片边缘带有一点圆角，更贴合苹果风 */
-  margin-top: 15px; /* 和上文的文字拉开一点距离 */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 加上淡淡的阴影，更有立体感 */
+  margin: 4px 0 10px 18px;
+  box-shadow: 0 8px 18px rgba(90, 60, 120, 0.18); /* 加上淡淡的阴影，更有立体感 */
 }
 /* 文字和头像并排 */
 .anime-line {
@@ -134,15 +151,15 @@
   width: auto;
   border-radius: 4px;
   vertical-align: middle;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(90, 60, 120, 0.18);
 }
 
 /* ── 3D 整板翻面 ── */
 .flip-wrapper {
   perspective: 1200px;
   width: 100%;
-  max-width: 1000px;
   position: relative;
+  transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .flip-inner {
@@ -172,18 +189,27 @@
   left: 0;
   width: 100%;
   min-height: 100%;
-  background: rgba(255, 255, 255, 0.35);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.9);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border: 1px solid rgba(244, 114, 182, 0.15);
+  border: 1px solid rgba(154, 63, 168, 0.1);
   border-radius: 24px;
   padding: 30px;
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 32px rgba(192, 97, 203, 0.08);
+  box-shadow: 0 8px 32px rgba(90, 60, 120, 0.08);
+}
+
+/* 背面大图：限制高度，不抢内容 */
+.egg-image {
+  display: block;
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 14px;
+  margin-bottom: 20px;
 }
 
 .flip-trigger {
@@ -222,14 +248,15 @@
 
 .egg-footer {
   font-size: 0.85rem !important;
-  color: #b8a0c8 !important;
+  color: #8b7b9b !important;
   font-style: italic;
   margin-top: 20px !important;
 }
 .anime-lists {
   display: flex;         /* 开启弹性盒布局 */
   flex-direction: row;   /* 让子元素横向排成一排 */
-  gap: 80px;             /* 左右两组列表之间的空隙距离，你可以根据喜好微调 */
+  flex-wrap: wrap;
+  gap: 8px 64px;         /* 左右两组列表之间的空隙距离，你可以根据喜好微调 */
   margin: 0 0 16px 0;    /* 保持原先 ul 的外边距，防止挤压下面的文字 */
 }
 
@@ -238,17 +265,26 @@
   margin: 0; 
   padding-left: 1.2em;   /* 保持你原先设计的樱花 🌸 图标间距 */
 }
+/* ── 右栏变窄时，主介绍占满一行 ── */
+@media (max-width: 1280px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .main-intro,
+  .wide-box {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .skills-box,
+  .status-box {
+    grid-column: span 1;
+  }
+}
+
 /* ── 响应式适配手机端 ── */
 @media (max-width: 768px) {
-  .about-section {
-    padding: 0 12px 40px;
-  }
-
-  .glass-container {
-    padding: 20px;
-    border-radius: 16px;
-  }
-
   .bento-grid {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -278,8 +314,7 @@
   }
 
   .bento-title-ultrasmall {
-    font-size: 0.45rem;
-    margin: 0 0 20px 0;
+    margin: 0 0 12px 0;
   }
 
   .bento-text {
@@ -293,7 +328,7 @@
 
   .about-image {
     max-width: 100px;
-    margin-top: 10px;
+    margin: 4px 0 8px 12px;
   }
 
   /* 翻面面板手机适配 */
@@ -306,11 +341,9 @@
     border-radius: 16px;
   }
 
-  .flip-back-panel img {
-    max-height: 80px;
-    width: auto;
-    object-fit: contain;
-    border-radius: 8px;
+  .egg-image {
+    max-height: 180px;
+    margin-bottom: 12px;
   }
 
   .easter-egg-content p {

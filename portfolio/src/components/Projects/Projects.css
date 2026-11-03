@@ -1,0 +1,93 @@
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(154, 63, 168, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 6px 24px rgba(90, 60, 120, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(90, 60, 120, 0.1);
+}
+
+/* 主打项目：占满一行，浅紫底色 */
+.project-card.featured {
+  grid-column: 1 / -1;
+  background: #ece0f8;
+  border-color: rgba(154, 63, 168, 0.18);
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3d2b4d;
+  margin: 0 0 8px;
+}
+
+.featured .project-title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+}
+
+.project-text {
+  color: #6b5b7b;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.featured .project-text {
+  color: #55456a;
+  font-size: 1.1rem;
+}
+
+.featured .tech-tags span {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.project-links {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.project-links a {
+  color: #8a3596;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .project-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .featured .project-title {
+    font-size: 1.4rem;
+  }
+
+  .featured .project-text {
+    font-size: 1rem;
+  }
+}

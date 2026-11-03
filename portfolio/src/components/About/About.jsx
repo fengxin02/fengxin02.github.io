@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import './About.css';
+import { favouriteTech, now, otherTech } from '../../data/content';
 import sato from '../../assets/sato.png';
 import soyo from '../../assets/SoyoJiayou.png';
 import raphiel from '../../assets/Raphiel.jpg';
@@ -35,24 +36,39 @@ const itemVariants = {
   },
 };
 
+// 卡片悬浮：轻轻上移
+const cardHover = { y: -4, transition: spring };
+
 const About = () => {
   const [flipped, setFlipped] = useState(false);
+  const [height, setHeight] = useState();
+  const frontRef = useRef(null);
+  const backRef = useRef(null);
+
+  // 两面高度不同：外框跟随当前这一面，下面的版块才不会被盖住
+  useLayoutEffect(() => {
+    const panel = (flipped ? backRef : frontRef).current;
+    const observer = new ResizeObserver(() => setHeight(panel.offsetHeight));
+    observer.observe(panel);
+    return () => observer.disconnect();
+  }, [flipped]);
 
   return (
-    <section className="about-section">
-      {/* 3D 翻面容器 — 包裹整块玻璃面板 */}
-      <div className={`flip-wrapper ${flipped ? 'flipped' : ''}`}>
+    <section className="about-section" id="about">
+      {/* 3D 翻面容器 — 包裹整块面板 */}
+      <div className={`flip-wrapper ${flipped ? 'flipped' : ''}`} style={{ height }}>
         <div className="flip-inner">
           {/* ── 正面：完整的便当面板 ── */}
           <motion.div
-            className="flip-front-panel glass-container bento-grid"
+            ref={frontRef}
+            className="flip-front-panel bento-grid"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
           >
             {/* 1. 主介绍 */}
-            <motion.div className="bento-item main-intro" variants={itemVariants}>
+            <motion.div className="bento-item main-intro" variants={itemVariants} whileHover={cardHover}>
               <h2
                 className="bento-title flip-trigger"
                 onClick={() => setFlipped(true)}
@@ -61,62 +77,65 @@ const About = () => {
                 About Me
               </h2>
               <p className="bento-text">
+                <img src={sato} alt="Sato" className="about-image" />
                 Hi! I&apos;m Yan or you can call me Ji or Fengxin. You might be
                 curious about me, because you are here. I really like flowers,
                 especially the hyacinth, which is really the same as my name on
-                internet 风信子. I am currently a Computer Science student, as
-                most of the Computer Science students I chose this major because
+                internet 风信子. I am currently a Computer Engineering student, as
+                most of the Computer Engineering students I chose this major because
                 I love playing video games. Yeah you can find more information
                 by browsing my portfolio. I tried to put some easter eggs
                 waiting for you to find them.
-                <img src={sato} alt="Sato" className="about-image" />
               </p>
             </motion.div>
 
             {/* 2. 技能 */}
-            <motion.div className="bento-item skills-box" variants={itemVariants}>
+            <motion.div className="bento-item skills-box" variants={itemVariants} whileHover={cardHover}>
               <span className="bento-title-ultrasmall">
                 I don&apos;t wanna talk a lot about these stuffs here but let me
                 tell you about my favourite
               </span>
               <h3 className="bento-title-small">Tech Stack</h3>
               <div className="tech-tags">
-                <span>React</span>
-                <span>Python</span>
-                <span>C#</span>
+                {favouriteTech.map((tech) => (
+                  <span key={tech}>{tech}</span>
+                ))}
+              </div>
+              <p className="also-label">Also worked with</p>
+              <div className="tech-tags quiet">
+                {otherTech.map((tech) => (
+                  <span key={tech}>{tech}</span>
+                ))}
               </div>
             </motion.div>
 
-            {/* 3. 游戏 */}
-            <motion.div className="bento-item status-box" variants={itemVariants}>
-              <h3 className="bento-title-small">Favourite Games</h3>
-              <div className="tech-tags">
-                <span>League of Legends</span>
-                <span>osu!</span>
-                <span>Muse Dash</span>
-                <span>CSGO</span>
-                <span>Clash Royale</span>
-                <span>Stellar Blade</span>
-                <span>Elden Ring</span>
-                <span>Granblue Fantasy: Relink</span>
-                <span>...</span>
-              </div>
+            {/* 3. 正在做什么 */}
+            <motion.div className="bento-item status-box" variants={itemVariants} whileHover={cardHover}>
+              <h3 className="bento-title-small">Right now</h3>
+              <dl className="now-list">
+                {now.map((item) => (
+                  <div key={item.label}>
+                    <dt>{item.label}</dt>
+                    <dd>{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
             </motion.div>
 
             {/* 4. 更多 */}
-            <motion.div className="bento-item wide-box" variants={itemVariants}>
+            <motion.div className="bento-item wide-box" variants={itemVariants} whileHover={cardHover}>
               <h3 className="bento-title-small">More things</h3>
               <p className="bento-text">
-                Yeah more..... Let&apos;s find more about me, click on the icon at the top right corner of this page or 
-                
+                Yeah more..... Let&apos;s find more about me, click on the icon at the top right corner of this page or
+
                 <span className="small-text">{' '}somewhere else...... maybe just click around? </span>
               </p>
             </motion.div>
           </motion.div>
 
           {/* ── 背面：隐藏彩蛋 ── */}
-          <div className="flip-back-panel">
-            <img src={soyo} alt="Soyo" />
+          <div className="flip-back-panel" ref={backRef}>
+            <img src={soyo} alt="Soyo" className="egg-image" />
             <h2
               className="bento-title flip-trigger"
               onClick={() => setFlipped(false)}
@@ -132,7 +151,7 @@ const About = () => {
               <p>I love watching anime, but i guess it&apos;s not hard to figure out by the style of the website.
                  The scene above is one of my favorite scenes from the &ldquo;MyGO!!!!!&rdquo;. (It&apos;s kinda fit there imo)</p>
                  <p>Lemme tell you a few my favorite anime:</p>
-            
+
             <div className="anime-lists">
 
               <ul>

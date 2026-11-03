@@ -1,11 +1,13 @@
 /* =========================================
-   Hero — 首屏组件样式
+   Hero — 首屏和整页布局
    ========================================= */
 
-/* ── 鼠标拖尾 canvas ── */
+/* ── 鼠标落花瓣 canvas ── */
 .trail-canvas {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 9997;
   pointer-events: none;
 }
@@ -13,9 +15,10 @@
 /* ── 外层包裹 ── */
 .hero-wrapper {
   position: relative;
+  color: #3d2b4d;
 }
 
-/* ── 粒子背景：fixed 铺满全屏，滚动时始终可见 ── */
+/* ── 粒子背景：fixed 铺满全屏，开场结束后淡入 ── */
 .particles-bg {
   position: fixed;
   top: 0;
@@ -23,101 +26,252 @@
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: none;       /* 让滚动条可点击，不拦截鼠标 */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.4s ease;
 }
 
-/* canvas 需要恢复交互才能 hover 排斥粒子 */
-.particles-bg canvas {
-  pointer-events: auto;
+.particles-bg.visible {
+  opacity: 1;
 }
 
-/* ── 主内容流：flex 列布局，标题在上、About 在下 ── */
-.hero-container {
+/* ── 开场散落的花瓣：从花穗的位置出发 ── */
+.petal-burst {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.petal-burst-item {
+  position: absolute;
+  left: 50%;
+  top: 16vh;
+  border-radius: 50%;
+}
+
+/* ── 第一屏：占满一屏，提示箭头贴在底部 ── */
+.hero-first {
+  position: relative;
+  width: 100%;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #3d2b4d;
-  padding-top: 12vh;
-  padding-bottom: 80px;
+}
+
+/* 桌面上固定在屏幕上，手机上跟着页面滚走（见下方响应式） */
+.hero-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  padding-top: 4vh;
+  pointer-events: none;
+}
+
+.hero-group {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hyacinth {
+  display: block;
+  height: var(--flower-h);
+  width: auto;
+  overflow: visible;
+  flex-shrink: 0;
+  pointer-events: auto;
 }
 
 /* ── 标题区域 ── */
 .hero-content {
   text-align: center;
-  width: 100%;
   padding: 0 20px;
+  margin-top: 16px;
+  pointer-events: auto;
 }
 
 /* ── 排版 ── */
 .hero-title {
-  font-size: 4rem;
-  margin: 0 0 20px 0;
-  font-weight: bold;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin: 0 0 8px 0;
+  /* 抵消最后一个字的字距，保持视觉居中 */
+  padding-left: 0.08em;
 }
 
+.hero-name {
+  font-size: 1.25rem;
+  color: #6b5b7b;
+  margin: 0 0 6px 0;
+}
+
+/* 固定行高，切换文字时下方内容不跳动 */
 .hero-subtitle {
-  font-size: 2rem;
-  font-weight: normal;
-  margin: 0 0 80px 0;  /* 与下方 About 的间距 */
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  min-height: 1.6em;
+  margin: 0;
+  color: #9a3fa8;
 }
 
-.highlight-blue,
-.highlight-pink {
-  color: #c061cb;
-  font-weight: bold;
+.rotating-word {
+  display: inline-block;
 }
 
-/* ── 点击涟漪效果 ── */
-.ripple-center,
-.ripple-fill,
-.ripple-ring {
+/* ── 左栏：风信子下方的简介和导航 ── */
+.hero-rail {
   position: fixed;
+  z-index: 1;
+  left: calc(max(0px, (100% - var(--page-max)) / 2) + var(--rail-w) / 2);
+  top: calc(4vh + var(--rail-scale) * (var(--flower-h) + 130px) + 20px);
+  width: max-content;
+  translate: -50% 0;
+  text-align: center;
+}
+
+.rail-tagline {
+  font-size: 0.95rem;
+  color: #6b5b7b;
+  margin: 0 0 18px;
+}
+
+.rail-links {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+}
+
+.rail-links a {
+  display: block;
+  padding: 5px 12px;
+  font-size: 1rem;
+  color: #8b7b9b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.rail-links a:hover,
+.rail-links a.active {
+  color: #8a3596;
+}
+
+.rail-links a.active {
+  font-weight: 600;
+}
+
+.rail-hello {
+  font-size: 0.8rem;
+  color: #8b7b9b;
+  margin: 0;
+}
+
+/* ── 往下滚动的提示 ── */
+.scroll-hint {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  margin-bottom: 20px;
+  padding: 8px;
+  display: flex;
+  color: #8b7b9b;
+  transition: color 0.2s ease;
+}
+
+.scroll-hint:hover {
+  color: #9a3fa8;
+}
+
+/* ── 主内容：左边给风信子留位置 ── */
+.page-layout {
+  position: relative;
+  z-index: 2;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding-left: var(--rail-w);
+  /* 右侧给固定的头像留位置 */
+  padding-right: 96px;
+  padding-bottom: 80px;
+  /* 留给左栏的空白不能挡住导航和风信子的点击 */
+  pointer-events: none;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  min-width: 0;
+  pointer-events: auto;
+}
+
+/* ── 点击开花 ── */
+.bloom-petal {
+  position: fixed;
+  width: 9px;
+  height: 16px;
+  margin: -8px 0 0 -4.5px;
   border-radius: 50%;
+  background: #c9a7e8;
   pointer-events: none;
   z-index: 9999;
 }
 
-.ripple-ring {
-  border-style: solid;
-}
-
 /* ── 右上角头像 ── */
 .hero-avatar {
-  position: absolute;
+  position: fixed;
   top: 24px;
   right: 24px;
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid rgba(192, 97, 203, 0.2);
+  border: 2px solid rgba(154, 63, 168, 0.2);
   object-fit: cover;
   z-index: 100;
-  box-shadow: 0 0 20px rgba(192, 97, 203, 0.15);
+  box-shadow: 0 4px 16px rgba(90, 60, 120, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-avatar:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 30px rgba(192, 97, 203, 0.25);
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(90, 60, 120, 0.18);
 }
 
-/* ── 响应式 ── */
-@media (max-width: 768px) {
-  .hero-container {
+/* ── 平板和手机：单栏，风信子跟着页面滚走 ── */
+@media (max-width: 1023px) {
+  .hero-stage {
+    position: static;
     padding-top: 6vh;
-    padding-bottom: 40px;
-    min-height: auto;
+    pointer-events: auto;
   }
 
-  .hero-title {
-    font-size: 1.8rem;
-    margin: 0 0 12px 0;
+  .hero-avatar {
+    position: absolute;
   }
 
+  .page-layout {
+    padding: 0 20px 48px;
+    max-width: 760px;
+  }
+
+  .page-content {
+    gap: 56px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-name,
   .hero-subtitle {
-    font-size: 1rem;
-    margin: 0 0 40px 0;
+    font-size: 1.05rem;
   }
 
   .hero-avatar {
@@ -129,5 +283,9 @@
 
   .hero-content {
     padding: 0 16px;
+  }
+
+  .page-layout {
+    padding: 0 12px 40px;
   }
 }
